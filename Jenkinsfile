@@ -1,11 +1,11 @@
 node {
     stage('Download') {
-    git branch: 'dev', url: 'https://github.com/clouddevopseng/9am-new-project.git'
+    git branch: 'test', url: 'https://github.com/clouddevopseng/9am-new-project.git'
      }
     stage('Artifacts convert') {
     sh 'mvn package'
      }
     stage('Deploy into tomcat container') {
-    deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'f1c9c42d-414e-45f2-8a4e-141cded58af0', path: '', url: 'http://172.31.8.185:8080')], contextPath: '/new-dev-app', war: '**/*.war'
+    deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '688da7d5-53af-4485-adb8-76a4c381692d', path: '', url: 'http://13.204.88.141:8080')], contextPath: '/new-test-app', war: '**/*.war
      }  
 }
